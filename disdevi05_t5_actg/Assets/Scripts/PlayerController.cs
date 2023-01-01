@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D  rigidbody2D;
+    private Rigidbody2D  myRigidbody2D;
     private float horizontal;
     public float velocidad;
     public float fuerzaSalto;
@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -26,10 +26,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody2D.velocity = new Vector2(horizontal * velocidad, rigidbody2D.velocity.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal * velocidad, GetComponent<Rigidbody2D>().velocity.y);
     }
 
     private void Jump(){
-        rigidbody2D.AddForce(Vector2.up * fuerzaSalto);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * fuerzaSalto);
     }
 }

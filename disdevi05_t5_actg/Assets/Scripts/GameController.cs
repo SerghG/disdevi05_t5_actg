@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class GameController : MonoBehaviour
     {
         if(col.gameObject.tag == "BonusEnergia"){
             this.addTiempoPila();
+        }
+        if(col.gameObject.tag == "CambioDeNivel"){
+            SceneManager.LoadScene(0);
         }
     }
 }
