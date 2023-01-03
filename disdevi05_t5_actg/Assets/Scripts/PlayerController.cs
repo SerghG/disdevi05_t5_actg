@@ -8,6 +8,12 @@ public class PlayerController : MonoBehaviour
     private float horizontal;
     public float velocidad;
     public float fuerzaSalto;
+    public float fuerzaCaida;
+    public LayerMask suelo;
+    public bool enSuelo = false;
+    public float longitudSuelo;
+    public float gravedad = 1;
+    private bool peticionSalto;
 
     // Start is called before the first frame update
     void Start()
@@ -19,17 +25,46 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        if(Input.GetKeyDown(KeyCode.W)){
-            Jump();
+
+        enSuelo = Physics2D.Raycast(transform.position, Vector2.down, longitudSuelo, suelo);
+
+        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && enSuelo){
+            peticionSalto = true;
         }
     }
 
     private void FixedUpdate()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal * velocidad, GetComponent<Rigidbody2D>().velocity.y);
+        myRigidbody2D.velocity = new Vector2(horizontal * velocidad, myRigidbody2D.velocity.y);
+        ModifyPhisics();
+
+        if (peticionSalto) {
+            Jump();
+        }
+    }
+
+    private void ModifyPhisics(){
+        if (enSuelo) {
+            myRigidbody2D.drag = 0;
+        }
+        else {
+            myRigidbody2D.gravityScale = gravedad;
+            myRigidbody2D.drag = 0.6f;
+            if (myRigidbody2D.velocity.y < 0) {
+                myRigidbody2D.gravityScale = gravedad * fuerzaCaida;
+            }
+        }
     }
 
     private void Jump(){
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * fuerzaSalto);
+        myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, 0);
+        myRigidbody2D.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+
+        peticionSalto = false;
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * longitudSuelo);
     }
 }

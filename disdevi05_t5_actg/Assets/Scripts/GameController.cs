@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -23,11 +24,12 @@ public class GameController : MonoBehaviour
             if(vidaActual <= 0 && perdido == false){
                 Debug.Log("Has perdido.");
                 perdido = true;
+                SceneManager.LoadScene(0);
             }
     }
 
     public void addTiempoPila(){
-        vidaActual = vidaActual + 20;
+        vidaActual = Math.Min(vidaActual + 20, vidaMaxima);
         Debug.Log("Tiempo añadido");
     }
 
@@ -46,10 +48,10 @@ public class GameController : MonoBehaviour
             this.addTiempoPila();
         }
         if(col.gameObject.tag == "CambioDeNivel"){
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
         if(col.gameObject.tag == "PeligroMortal"){
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }
