@@ -48,5 +48,8 @@ public class GameController : MonoBehaviour
         if(col.gameObject.tag == "CambioDeNivel"){
             SceneManager.LoadScene(0);
         }
+        if(col.gameObject.tag == "PeligroMortal"){
+            SceneManager.LoadScene(1);
+        }
     }
 }
