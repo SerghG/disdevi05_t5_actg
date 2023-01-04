@@ -8,9 +8,13 @@ using System;
 public class GameController : MonoBehaviour
 {
     public Image barraDeVida;
-    public float vidaActual;
+    private float vidaActual;
     public float vidaMaxima;
     private bool perdido = false;
+
+    void Start() {
+        vidaActual = vidaMaxima;
+    }
 
     void Update()
     {
