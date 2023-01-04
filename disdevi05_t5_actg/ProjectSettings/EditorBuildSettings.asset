@@ -13,8 +13,8 @@ EditorBuildSettings:
     guid: f11d334f81def0c488a67b6daa80a53d
   - enabled: 1
     path: Assets/Scenes/Nivel2.unity
-    guid: 6d46f41ca8a442a43891cd1dee2ca8a9
+    guid: f20a270989a8d9e43818e8addfda2860
   - enabled: 1
-    path: Assets/Scenes/ScenaTestSergio.unity
-    guid: d8edba157ebb2064f96d6b62dc6b461a
+    path: Assets/Scenes/Victoria.unity
+    guid: d5669f8e27d09f5418bad0657431ff68
   m_configObjects: {}

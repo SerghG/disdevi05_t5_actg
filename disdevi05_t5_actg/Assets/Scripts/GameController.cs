@@ -44,14 +44,20 @@ public class GameController : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "BonusEnergia"){
+        if(col.gameObject.tag == "BonusEnergia") {
             this.addTiempoPila();
         }
-        if(col.gameObject.tag == "CambioDeNivel"){
+
+        else if(col.gameObject.tag == "CambioDeNivel") {
             SceneManager.LoadScene(2);
         }
-        if(col.gameObject.tag == "PeligroMortal"){
+
+        else if(col.gameObject.tag == "PeligroMortal") {
             SceneManager.LoadScene(0);
+        }
+
+        else if(col.gameObject.tag == "PuertaFinal") {
+            SceneManager.LoadScene(3);
         }
     }
 }
