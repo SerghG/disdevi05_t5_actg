@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D  myRigidbody2D;
+    private Rigidbody2D myRigidbody2D;
+    private SpriteRenderer mySprite;
     private float horizontal;
     public float velocidad;
     public float fuerzaSalto;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
+        mySprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -28,7 +30,15 @@ public class PlayerController : MonoBehaviour
 
         enSuelo = Physics2D.Raycast(transform.position, Vector2.down, longitudSuelo, suelo);
 
-        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && enSuelo){
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+            mySprite.flipX = true;
+        }
+
+        else if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+            mySprite.flipX = false;
+        }
+            
+        else if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && enSuelo) {
             peticionSalto = true;
         }
     }

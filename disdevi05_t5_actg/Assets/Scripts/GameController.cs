@@ -34,7 +34,6 @@ public class GameController : MonoBehaviour
 
     public void addTiempoPila(){
         vidaActual = Math.Min(vidaActual + 20, vidaMaxima);
-        Debug.Log("Tiempo añadido");
     }
 
     public void restaTiempo(float tiempoEliminar){

@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     private int facingDirection;
     public float movementSpeed;
     public Vector3 colliderOffset;
-    private bool turning = false;
+    public bool turning = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +36,8 @@ public class EnemyController : MonoBehaviour
     {
         if (!turning){
             groundDetected = Physics2D.Raycast(transform.position + (colliderOffset * facingDirection), Vector2.down, groundDistance, ground);
-            wallDetected = Physics2D.Raycast(transform.position, transform.right, wallDistance, wall);
-        
+            wallDetected = Physics2D.Raycast(transform.position, (Vector2.right * facingDirection), wallDistance, wall);
+
             if((!groundDetected || wallDetected)) {
                 turning = true;
                 Turn();
@@ -57,9 +57,8 @@ public class EnemyController : MonoBehaviour
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position + (colliderOffset * facingDirection), transform.position - colliderOffset + Vector3.down * groundDistance);
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * wallDistance);
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.left * wallDistance);
+        Gizmos.DrawLine(transform.position + (colliderOffset * facingDirection), transform.position + (colliderOffset * facingDirection) + Vector3.down * groundDistance);
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * facingDirection * wallDistance);
     }
 
     private IEnumerator Wait() {
