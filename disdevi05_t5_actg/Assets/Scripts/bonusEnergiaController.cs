@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class bonusEnergiaController : MonoBehaviour
 {
+
+    public SonidoEmisor emisor;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class bonusEnergiaController : MonoBehaviour
     {
         if(col.gameObject.tag == "Player"){
             Destroy(this.gameObject);
+            this.emisor.recogerBateria();
         }
     }
 }
