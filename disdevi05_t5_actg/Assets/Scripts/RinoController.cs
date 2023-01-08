@@ -8,7 +8,7 @@ public class RinoController : MonoBehaviour
     private Animator animator;
     public float radarDistance;
     public float maxHealth = 100;
-    private float currentHealth;
+    public float currentHealth;
     public LayerMask ground;
     public LayerMask wall;
     public float groundDistance;

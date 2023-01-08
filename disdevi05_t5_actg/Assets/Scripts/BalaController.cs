@@ -21,11 +21,22 @@ public class BalaController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Trunk")) {
-            other.gameObject.GetComponent<TrunkController>().currentHealth -= 50;
+        /*if (other.gameObject.CompareTag("Trunk")) {
+            other.gameObject.GetComponent<TrunkController>().currentHealth -= 35;
+            if (other.gameObject.GetComponent<TrunkController>().currentHealth <= 0) {
+                Destroy(other.gameObject);
+            }
             Destroy(gameObject);
         }
-        else if (other.gameObject.CompareTag("Suelo")) {
+        else if (other.gameObject.CompareTag("Rino")) {
+            other.gameObject.GetComponent<RinoController>().currentHealth -= 50;
+            Destroy(gameObject);
+            if (other.gameObject.GetComponent<RinoController>().currentHealth <= 0) {
+                Debug.Log("Hola");
+                Destroy(other.gameObject);
+            }
+        }*/
+        if (other.gameObject.CompareTag("Suelo")) {
             Destroy(gameObject);
         }
     }

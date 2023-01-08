@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 163897889}
   m_Layer: 0
   m_Name: Rino (2)
-  m_TagString: PeligroMortal
+  m_TagString: Rino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,12 +403,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radarDistance: 0
   maxHealth: 100
+  currentHealth: 0
   ground:
     serializedVersion: 2
     m_Bits: 64
   wall:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   groundDistance: 1.2
   wallDistance: 1
   groundDetected: 0
@@ -3512,7 +3513,7 @@ GameObject:
   - component: {fileID: 986667207}
   m_Layer: 0
   m_Name: Rino (1)
-  m_TagString: PeligroMortal
+  m_TagString: Rino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3583,12 +3584,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radarDistance: 0
   maxHealth: 100
+  currentHealth: 0
   ground:
     serializedVersion: 2
     m_Bits: 64
   wall:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   groundDistance: 1.2
   wallDistance: 1
   groundDetected: 0
@@ -6741,7 +6743,7 @@ GameObject:
   - component: {fileID: 1961937189}
   m_Layer: 0
   m_Name: Rino
-  m_TagString: PeligroMortal
+  m_TagString: Rino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6868,12 +6870,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radarDistance: 0
   maxHealth: 100
+  currentHealth: 0
   ground:
     serializedVersion: 2
     m_Bits: 64
   wall:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   groundDistance: 1.2
   wallDistance: 1
   groundDetected: 0

@@ -10,6 +10,7 @@ TagManager:
   - CambioDeNivel
   - PuertaFinal
   - Trunk
+  - Rino
   layers:
   - Default
   - TransparentFX
