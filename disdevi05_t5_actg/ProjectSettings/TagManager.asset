@@ -9,6 +9,7 @@ TagManager:
   - Suelo
   - CambioDeNivel
   - PuertaFinal
+  - Trunk
   layers:
   - Default
   - TransparentFX
