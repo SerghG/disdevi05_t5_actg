@@ -47,6 +47,7 @@ public class RinoController : MonoBehaviour
                 animator.SetBool("Run", true);
             }
         }
+        
     }
 
     private void Turn() {
@@ -66,5 +67,12 @@ public class RinoController : MonoBehaviour
         facingDirection *= -1;
         agent.transform.Rotate(0, 180, 0);
         turning = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Bala"){
+            Destroy(this.gameObject);
+        }
     }
 }

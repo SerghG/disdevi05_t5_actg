@@ -59,6 +59,10 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
+        else if(col.gameObject.tag == "Enemigo") {
+            SceneManager.LoadScene(0);
+        }
+
         else if(col.gameObject.tag == "PuertaFinal") {
             SceneManager.LoadScene(3);
         }
