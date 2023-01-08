@@ -19,12 +19,19 @@ public class TrunkController : MonoBehaviour
     public float movementSpeed;
     public Vector3 colliderOffset;
     public bool turning = false;
+    private float playerDistance;
+    private GameObject player;
+    private float timer;
+    public GameObject bullet;
+    public Transform bulletPosition;
+    private bool isAttacking = false;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
         
         currentHealth = maxHealth;
 
@@ -34,17 +41,27 @@ public class TrunkController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!turning){
+        if (!turning && !isAttacking) {
             groundDetected = Physics2D.Raycast(transform.position + (colliderOffset * facingDirection), Vector2.down, groundDistance, ground);
             wallDetected = Physics2D.Raycast(transform.position, (Vector2.right * facingDirection), wallDistance, wall);
 
-            if((!groundDetected || wallDetected)) {
+            if ((!groundDetected || wallDetected)) {
                 turning = true;
                 Turn();
             }
             else {
                 agent.velocity = new Vector2(movementSpeed * facingDirection, agent.velocity.y);
-                animator.SetBool("Run", true);
+                //playerDistance = Vector2.Distance(transform.position, player.transform.position);
+                //playerDistance = transform.position.x - player.transform.position.x;
+            }
+        }
+
+        else if (isAttacking) {
+            timer += Time.deltaTime;
+
+            if (timer > 0.8) {
+                timer = 0;
+                Shoot();
             }
         }
     }
@@ -52,7 +69,24 @@ public class TrunkController : MonoBehaviour
     private void Turn() {
         agent.velocity = new Vector2(0, 0);
         animator.SetBool("Run", false);
+        animator.SetBool("Attack", false);
+        bulletPosition.transform.Rotate(0, 180, 0);
         StartCoroutine(Wait());
+    }
+
+    private void Attack() {
+        animator.SetBool("Run", false);
+        agent.velocity = new Vector2(0, 0);
+        animator.SetBool("Attack", true);
+    }
+
+    private void Shoot() {
+        if (facingDirection == 1) {
+            Instantiate(bullet, bulletPosition.position, Quaternion.identity);
+        }
+        else {
+            Instantiate(bullet, bulletPosition.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
+        }
     }
 
     private void OnDrawGizmos() {
@@ -66,5 +100,20 @@ public class TrunkController : MonoBehaviour
         facingDirection *= -1;
         agent.transform.Rotate(0, 180, 0);
         turning = false;
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.gameObject.tag == "Player") {
+            isAttacking = false;
+            animator.SetBool("Run", true);
+            animator.SetBool("Attack", false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Player") {
+            isAttacking = true;
+            Attack();
+        }
     }
 }

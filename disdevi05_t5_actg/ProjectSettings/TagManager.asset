@@ -8,6 +8,7 @@ TagManager:
   - CambioDeNivel
   - PeligroMortal
   - PuertaFinal
+  - Suelo
   layers:
   - Default
   - TransparentFX

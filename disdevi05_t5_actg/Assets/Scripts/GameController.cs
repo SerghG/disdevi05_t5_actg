@@ -8,7 +8,7 @@ using System;
 public class GameController : MonoBehaviour
 {
     public Image barraDeVida;
-    private float vidaActual;
+    public float vidaActual;
     public float vidaMaxima;
     private bool perdido = false;
 
