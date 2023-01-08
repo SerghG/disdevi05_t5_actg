@@ -252,8 +252,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonido: {fileID: 8300000, guid: c6af9c2bac85f2545a62d39bfdea3fb1, type: 3}
-  musica: {fileID: 8300000, guid: 731930c620d62a543a8ebf1edc815f78, type: 3}
-  musica2: {fileID: 8300000, guid: 62c7e7870dbfe4941939d4abab464b3b, type: 3}
+  musicaBG: {fileID: 8300000, guid: c6af9c2bac85f2545a62d39bfdea3fb1, type: 3}
+  cogerBateria_Audio: {fileID: 8300000, guid: 40f39de7fb79fb942adf8d5612ac5781, type: 3}
+  disparar_Audio: {fileID: 8300000, guid: 720e6a73cb837214e8fbd25ae65c454a, type: 3}
 --- !u!1 &2056922668488262847
 GameObject:
   m_ObjectHideFlags: 0
