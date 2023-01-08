@@ -14,7 +14,10 @@ public class PlayerController : MonoBehaviour
     public bool enSuelo = false;
     public float longitudSuelo;
     public float gravedad = 1;
+    public SonidoEmisor emisor;
+    public GameObject Bala;
     private bool peticionSalto;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +43,11 @@ public class PlayerController : MonoBehaviour
             
         else if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && enSuelo) {
             peticionSalto = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Disparar();
         }
     }
 
@@ -76,5 +84,10 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * longitudSuelo);
+    }
+
+    private void Disparar(){
+        this.emisor.disparar();
+        Instantiate(Bala, transform.position, transform.rotation);
     }
 }
