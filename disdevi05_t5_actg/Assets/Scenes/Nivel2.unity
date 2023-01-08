@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7518400650220702949, guid: e0459575f9adc1d409946ef6db7de742, type: 3}
+      propertyPath: barraDeVida
+      value: 
+      objectReference: {fileID: 1975713387}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0459575f9adc1d409946ef6db7de742, type: 3}
 --- !u!1 &163897888
@@ -6929,6 +6933,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5076337, y: 0.2905343}
   m_EdgeRadius: 0
+--- !u!114 &1975713387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4657283752785481304, guid: 45e3bdbd31acb7e47a0f268e58a9cab7, type: 3}
+  m_PrefabInstance: {fileID: 1599036098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2009112822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4807731546863366862, guid: 02371df816e7b604f95e14b40d499a18, type: 3}

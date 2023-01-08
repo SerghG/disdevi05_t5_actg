@@ -5,10 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - BonusEnergia
-  - PeligroMortal
-  - Suelo
   - CambioDeNivel
+  - PeligroMortal
   - PuertaFinal
+<<<<<<< HEAD
+  - Suelo
+=======
+  - Bala
+>>>>>>> 4cf42ee1322a51dc36392b4cb82844a131c622c5
   layers:
   - Default
   - TransparentFX
