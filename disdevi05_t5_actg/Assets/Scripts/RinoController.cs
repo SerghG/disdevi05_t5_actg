@@ -67,4 +67,11 @@ public class RinoController : MonoBehaviour
         agent.transform.Rotate(0, 180, 0);
         turning = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Bala"){
+            Destroy(this.gameObject);
+        }
+    }
 }
