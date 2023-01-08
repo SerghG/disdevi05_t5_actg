@@ -606,7 +606,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1560215094}
         m_TargetAssemblyTypeName: CargarPartidas, Assembly-CSharp
-        m_MethodName: PantallaPrincipal
+        m_MethodName: CargarNivel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
