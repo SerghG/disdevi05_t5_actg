@@ -39,5 +39,8 @@ public class BalaController : MonoBehaviour
         if (other.gameObject.CompareTag("Suelo")) {
             Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("Rino")) {
+            Destroy(gameObject);
+        }
     }
 }
